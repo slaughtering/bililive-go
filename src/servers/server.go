@@ -106,7 +106,7 @@ func (s *Server) Start(ctx context.Context) error {
 	inst := instance.GetInstance(ctx)
 	inst.WaitGroup.Add(1)
 	go func() {
-		listener, err := net.Listen("tcp4", s.server.Addr)
+		listener, err := net.Listen("tcp", s.server.Addr)
 		if err != nil {
 			inst.Logger.Error(err)
 			return
