@@ -30,7 +30,9 @@ package() {
   echo $BIN_PATH/$res
 }
 
-for dist in $(go tool dist list); do
+#for dist in $(go tool dist list); do
+dist_list='windows/amd64 linux/amd64 linux/arm64 darwin/arm64 darwin/amd64'
+for dist in $dist_list; do
   case $dist in
   linux/loong64 | android/* | ios/* | js/wasm )
     continue
